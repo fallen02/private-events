@@ -1,0 +1,9 @@
+<div class="m-8 mb-0 overflow-hidden">
+  <div class="grid rounded-lg shadow-sm  md:mb-12 md:grid-cols-4 dark:bg-transparent dark:border-red-700">
+    <% @events.each do |event| %>
+      <%= render 'gridSingleEvent', event:event %>
+    <% end %>
+  </div>
+</div>
+
+
