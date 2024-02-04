@@ -1,0 +1,37 @@
+<div class="w-full flex justify-center pt-6">
+  <div class="w-full max-w-2xl p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-6 md:p-8 dark:bg-transparent dark:border-red-700 backdrop-blur-2xl">
+    <h5 class="flex justify-center text-xl font-bold text-gray-900 dark:text-white  ">New Event</h5>
+    <%= form_with model: @event do |f| %>
+      <div>
+        <%= f.label :title, class:"block mb-2 text-sm font-medium text-gray-900 dark:text-white"%>
+        <%= f.text_field :title, autofocus: true, placeholder: "Enter title of event", autocomplete: "false", class: "bg-slate-800 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-slate-900 dark:border-blue-400 dark:placeholder-gray-400 dark:text-white"%>
+      </div>
+      <div>
+        <%= f.label :description, class:"block mb-2 text-sm font-medium text-gray-900 dark:text-white"%>
+        <%= f.text_area :description, size: "70x5",  autocomplete: "false", placeholder: "Enter description of event", class: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-slate-900 dark:border-blue-400 dark:placeholder-gray-400 dark:text-white"%>
+      </div>
+      <div>
+        <%= f.label :location, class: "block mb-2 text-sm font-medium text-gray-900 dark:text-white"%>
+        <%= f.text_field :location, placeholder: "Enter location", class: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-slate-900 dark:border-blue-400 dark:placeholder-gray-400 dark:text-white"%>
+      </div>
+      <div class="flex flex-row w-full justify-between">
+        <div class="w-full mr-0.5">
+          <%= f.label :date, class: "block mb-2 text-sm font-medium text-gray-900 dark:text-white"%>
+          <%= f.date_field :date, class: "bg-red-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-slate-900 dark:border-blue-400 dark:placeholder-gray-400 dark:text-white"%>
+        </div>
+        <div class="w-full ml-0.5">
+          <%= f.label :time, class: "block mb-2 text-sm font-medium text-gray-900 dark:text-white"%>
+          <%= f.time_field :time, class: "bg-red-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-slate-900 dark:border-blue-400 dark:placeholder-gray-400 dark:text-white"%>
+        </div>
+      </div>
+      <div class="w-full">
+        <% if action_name != 'edit' %>
+          <%= f.submit "Post event", class: "cursor-pointer mt-2 w-1/4 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"%>
+        <%else %>
+          <%= f.submit "Save event", class: "cursor-pointer mt-2 w-1/4 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"%>
+        <% end %>
+      </div>
+
+    <% end %>
+  </div>
+</div>
