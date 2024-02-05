@@ -3,4 +3,5 @@ class UsersController < ApplicationController
   def show
     @createdevents = current_user.events
   end
+
 end

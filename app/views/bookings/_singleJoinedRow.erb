@@ -1,0 +1,17 @@
+<tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
+  <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+    <%= event.title %>
+  </th>
+  <td class="px-6 py-4">
+    <%= event.creator.name %>
+  </td>
+  <td class="px-6 py-4">
+    <%= event.date %>, <%= event.time.strftime('%I:%M:%p') %>
+  </td>
+  <td class="px-6 py-4">
+    <%= @count.to_s %>
+  </td>
+  <td class="px-6 py-4">
+    <%= link_to "view", event_path(event.id) %>
+  </td>
+</tr>

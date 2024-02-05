@@ -1,7 +1,14 @@
 Rails.application.routes.draw do
   get 'users/events', to: 'users#show', as: :user_all_events
+  get 'users/joined', to: 'bookings#showjoinedevents', as: :attended_events
+  get 'attendees/:event_id', to: 'bookings#showattendees', as: :event_attendees
   devise_for :users, path: "auth", path_names: { sign_in: "login", sign_up: "register" }
   resources :events
+  resources :events do
+    post 'join', to: 'bookings#create'
+
+  end
+
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.

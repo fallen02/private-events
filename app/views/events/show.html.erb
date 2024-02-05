@@ -1,1 +1,25 @@
 <%= render 'eventcard', event:@event %>
+<div class="w-full flex justify-center">
+  <div class="w-1/2 flex justify-center mt-8   overflow-x-auto overflow-hidden shadow-md sm:rounded-lg ">
+    <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+      <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+      <tr>
+        <th scope="col" class="px-6 py-3">Event name</th>
+        <th scope="col" class="px-6 py-3">Creator name</th>
+      </tr>
+      </thead>
+      <tbody>
+      <% @event.attendees.each do |attendee| %>
+        <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
+          <td class="px-6 py-4">
+            <%= attendee.name %>
+          </td>
+          <td class="px-6 py-4">
+            <%= attendee.email%>
+          </td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

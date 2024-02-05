@@ -4,6 +4,7 @@ class EventsController < ApplicationController
   before_action :authenticate_creator!, only: [:edit, :update, :destroy]
   def index
     @events = Event.all
+    # puts current_user.bookings.where(:accepted => true)
   end
 
   def show
@@ -38,6 +39,8 @@ class EventsController < ApplicationController
     redirect_to user_all_events_path
     flash[:alert] = "Event deleted successfully!"
   end
+
+
 
   private
   def set_event
