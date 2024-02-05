@@ -6,8 +6,9 @@ Rails.application.routes.draw do
   resources :events
   resources :events do
     post 'join', to: 'bookings#create'
-
   end
+  get 'upcomingevents', to: 'events#upcoming', as: :upcoming_events
+  get 'pastevents', to: 'events#past', as: :past_events
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

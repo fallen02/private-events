@@ -1,10 +1,17 @@
 class EventsController < ApplicationController
-  before_action :set_event, except: [:index, :new, :create]
+  before_action :set_event, except: [:index, :new, :create, :upcoming, :past]
   before_action :authenticate_user!, only: [:new, :create]
   before_action :authenticate_creator!, only: [:edit, :update, :destroy]
   def index
     @events = Event.all
     # puts current_user.bookings.where(:accepted => true)
+  end
+
+  def upcoming
+    @upcomingevents = Event.future
+  end
+  def past
+    @pastevents = Event.past
   end
 
   def show
